@@ -6,10 +6,10 @@
 # autospec commit: da8b975
 #
 Name     : R-nanoarrow
-Version  : 0.4.0
-Release  : 4
-URL      : https://cran.r-project.org/src/contrib/nanoarrow_0.4.0.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/nanoarrow_0.4.0.tar.gz
+Version  : 0.4.0.1
+Release  : 5
+URL      : https://cran.r-project.org/src/contrib/nanoarrow_0.4.0.1.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/nanoarrow_0.4.0.1.tar.gz
 Summary  : Interface to the 'nanoarrow' 'C' Library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -41,19 +41,16 @@ lib components for the R-nanoarrow package.
 pushd ..
 cp -a nanoarrow buildavx2
 popd
-pushd ..
-cp -a nanoarrow buildapx
-popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707420052
+export SOURCE_DATE_EPOCH=1708707122
 
 %install
-export SOURCE_DATE_EPOCH=1707420052
+export SOURCE_DATE_EPOCH=1708707122
 rm -rf %{buildroot}
 LANG=C.UTF-8
 CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -95,7 +92,6 @@ export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
-/usr/bin/elf-move.py apx %{buildroot}-va %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
