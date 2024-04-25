@@ -7,7 +7,7 @@
 #
 Name     : R-nanoarrow
 Version  : 0.4.0.1
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/nanoarrow_0.4.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/nanoarrow_0.4.0.1.tar.gz
 Summary  : Interface to the 'nanoarrow' 'C' Library
